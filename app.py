@@ -319,17 +319,3 @@ st.markdown(
     'For research and educational use only</small></center>',
     unsafe_allow_html=True
 )
-```
-
----
-
-## Your Action Steps
-```
-1. Upload biobert_icd11_best.pt     → Google Drive → copy File ID
-2. Upload icd11_label_encoder.pickle → Google Drive → copy File ID
-3. Paste both File IDs into app.py  → lines 23 and 24
-4. Push 5 files to GitHub           → app.py, requirements.txt,
-                                       README.md, .gitignore,
-                                       icd11_label_encoder.pickle
-                                       (or let app.py download it too)
-5. Deploy on Streamlit Cloud        → share.streamlit.io
