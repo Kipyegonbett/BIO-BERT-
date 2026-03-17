@@ -164,8 +164,8 @@ MAX_LEN        = 256
 DEVICE         = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ── Paste your Google Drive File IDs here ─────────────────────────────────────
-MODEL_FILE_ID   = 'PASTE_YOUR_MODEL_FILE_ID_HERE'
-ENCODER_FILE_ID = 'PASTE_YOUR_ENCODER_FILE_ID_HERE'
+MODEL_FILE_ID   = '1nWNKgHzwlrOQqWz9GmCCNK6BUkw932jJ'
+ENCODER_FILE_ID = '1VvnRyzxoniUzII0Vxxj4FKl1UVvoLM1W'
 
 ICD11_CODES = {
     'Certain infectious or parasitic diseases'                          : '1',
@@ -208,20 +208,14 @@ QUICK_EXAMPLES = {
 # ── Download model files ───────────────────────────────────────────────────────
 def download_files():
     if not os.path.exists(CHECKPOINT):
-        with st.spinner('Downloading model weights — first run only, please wait...'):
-            gdown.download(
-                f'https://drive.google.com/uc?id={MODEL_FILE_ID}',
-                CHECKPOINT,
-                quiet=False
-            )
+        with st.spinner('Downloading model weights — please wait...'):
+            url = f'https://drive.google.com/uc?id={MODEL_FILE_ID}&export=download&confirm=t'
+            gdown.download(url, CHECKPOINT, quiet=False, fuzzy=True)
 
     if not os.path.exists(ENCODER):
         with st.spinner('Downloading label encoder...'):
-            gdown.download(
-                f'https://drive.google.com/uc?id={ENCODER_FILE_ID}',
-                ENCODER,
-                quiet=False
-            )
+            url = f'https://drive.google.com/uc?id={ENCODER_FILE_ID}&export=download&confirm=t'
+            gdown.download(url, ENCODER, quiet=False, fuzzy=True)
 
 download_files()
 
